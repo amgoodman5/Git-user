@@ -7,7 +7,7 @@ import Card from './Card';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: '' };
+    this.state = {  };
   }
   render() {
     return (
@@ -16,15 +16,21 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
           <Search
+            username={this.state.username}
             onSearch={username => {
-              this.setState({ username });
+              console.log('App.onSearch', username)
+              this.setState((prevState, props) => {
+                let s = {...prevState, username }
+                console.log('App.onSearch.setState()', s)
+                return s;
+              });
             }}
           />
           <Card username={this.state.username} />
-        </p>
+        </div>
       </div>
     );
   }
