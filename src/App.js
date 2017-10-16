@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 import Search from './Search';
 import Card from './Card';
@@ -31,7 +31,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Find Git User</h1>
         </header>
-        <div className="App-intro">
+        <div className="container App-intro">
           <h4>{this.state.message}</h4>
           <Search
             username={this.state.username}
@@ -45,7 +45,11 @@ class App extends Component {
               // });
             }}
           />
-          <Card user={this.state.user} />
+          <div className='row'>
+            <div className='col s6'>
+              <Card user={this.state.user} />
+            </div>
+          </div>
         </div>
       </div>
     );

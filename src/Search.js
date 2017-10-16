@@ -11,19 +11,21 @@ class Searchform extends React.Component {
 
   render() {
     return (
-      <div className="Search">
-        <h3>Enter github</h3>
-        <input
-          onChange={(event) => {
-            console.log('Search.input.onChange', event.target.value)
-            this.setState({ searchUser: event.target.value });
-          }}
-        />
-        <button onClick={() => {
-          console.log('Search.button.Clicked!', this.state.searchUser)
+      <div className='row'>
+        <form className="search col s8" onSubmit={e => {
+          e.preventDefault()
+          console.log('Search.Form.Submit!', this.state.searchUser)
           this.onSearch(this.state.searchUser)
-        }}>Search</button>
-        <div />
+        }}>
+          <h3>Enter github username:</h3>
+          <input
+            onChange={(event) => {
+              console.log('Search.input.onChange', event.target.value)
+              this.setState({ searchUser: event.target.value });
+            }}
+          />
+          <button type='submit'>Search</button>
+        </form>
       </div>
     );
   }
