@@ -25,4 +25,9 @@ class Searchform extends React.Component {
   }
 }
 
+// add a lifecycle event  - compomentDidMount
+// component did Mount - it fires after the JSX is attached to the DOM and its the appropriate space
+// to run an ajax call
+
+
 export default Searchform;
